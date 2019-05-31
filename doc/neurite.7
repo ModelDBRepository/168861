@@ -1,0 +1,46 @@
+.TH neurite 7 "March 2014" "Public version"
+.SH NAME
+Neurite - a parallel program for simulating electrophysiological signal propagation in neurites under mechanical loading
+.SH SYNOPSIS
+.B ./Neurite [Options] [output file] [log file]
+.SH DESCRIPTION
+Neurite is a finite difference program that simulates the electrophysiological signal propagation in myelinated and unmyelinated axons, and in dendritic trees under mechanical loading. The program has two different solvers---explicit and implicit---that can be executed with the sequential CPU processor or with GPU accelerators to run parallel simulations. The discretization must be defined as a function in space.cpp file
+.SH MANDATORY
+.IP -log
+Set the name for the log file
+.IP -out
+Set the name for the output file
+.SH INPUTS
+Input_data.txt file: this file must be given to Neurite in case the mechanical model is used. For more information about this file, please see the mechanical_model.cpp file
+
+neuron_for_neurite.txt file: this file must be given to Neurite when a segmented neuron is being loaded by the program
+.SH OPTIONS
+.IP General:
+.IP -Tt
+Total time of the simulation
+.IP -dtf
+Critical time step factor (Default value = 1)
+.IP Solver:
+.IP -E
+Explicit solver
+.IP -I
+Implicit solver
+.IP EXTRA:
+.IP -xspan
+Total length. N/A in a branched structure
+.IP -MAXE
+Maximum microscopic membrane axial strain
+.IP -nu
+Strain distribution coefficient between IR and NR
+.IP -str
+Microscopic membrane axial strain
+.IP -IRE
+Number of elements in each IR
+.IP -HHE
+Number of elements in each NR
+.SH BUGS
+None that I know of
+.SH AUTHOR
+Julian Andres Garcia-Grajales, under the supervision of Antoine Jerusalem
+." .SH SEE ALSO
+.SH
